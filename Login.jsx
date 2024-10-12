@@ -16,9 +16,11 @@ const Login = () => {
 
 	
 
-	const formSubmitter = e => {
+	const formSubmitter = (e) => {
 		e.preventDefault();
 		setsuccessMessage('');
+    		seterrorMessage('');
+
 		if (!emailValidator(input.email)) return seterrorMessage('Please enter valid email id');
 
 		if (!passwordValidator(input.password))
@@ -34,7 +36,7 @@ const Login = () => {
 				<div className="container-login100" style={{ backgroundImage: 'url("images/books.png")' }}>
 					<div className="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
 						<form className="login100-form validate-form" onSubmit={formSubmitter}>
-              
+
 							<span className="login100-form-title p-b-49">Login</span>
 							{errorMessage.length > 0 && <div style={{ marginBottom: '10px', color: 'red' }}>{errorMessage}</div>}
 							{successMessage.length > 0 && (
