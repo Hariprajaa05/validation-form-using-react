@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import Login from './Login';
 const Signup = () => {
-  const [formData, setFormData] = useState({ username: '', email: '', password: '' });
+  const [formData, setFormData] = useState({ username: '', email: '', password: '' });//[initial value,updated value]
   const [submittedData, setSubmittedData] = useState([]);
   const [errorMessage, seterrorMessage] = useState('');
   const [successMessage, setsuccessMessage] = useState('');
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    const { name, value } = e.target;//getting values and storing in name,value all together by target...else we would write target.name,target.value
+    setFormData({ ...formData, [name]: value });//updating the array formData
   };
 
   const formSubmitter = (e) => {
@@ -20,8 +20,8 @@ const Signup = () => {
       return seterrorMessage('Please fill in all fields');
     }
 
-    setSubmittedData([...submittedData, formData]);
-    setFormData({ username: '', email: '', password: '' });
+    setSubmittedData([...submittedData, formData]);//adding with previous data
+    setFormData({ username: '', email: '', password: '' });//resets 
     setsuccessMessage('Signup successful!');
   };
 
