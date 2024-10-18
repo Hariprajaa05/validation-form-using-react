@@ -15,13 +15,13 @@ const Login = ({ submittedData }) => {
     seterrorMessage('');
 
     const foundUser  = submittedData.find((user) => user.email === input.email && user.password === input.password);
-
+    //chechking if it is same("user" can be changed to anything else ourwish)
     if (!foundUser ) {
       return seterrorMessage('Invalid email or password');
     }
 
     setsuccessMessage('Successfully logged in!');
-    // Maybe redirect to a protected route or perform other login-related actions
+    
   };
 
   return (
